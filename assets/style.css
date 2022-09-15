@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap");
-
 :root {
     --bg-black: #131415;
     --bg-gray: #252525;
@@ -7,8 +6,8 @@
     --yellow-main: #ffa400;
     --white-main: #ffffff;
     --red-main: #fc2933;
-    --gradient: linear-gradient(to right, #ffa100, #ff860e, #ff691f, #ff472f, #fb103d);
-    --gradient-hover: linear-gradient(to right, #f1ab32, #fa942e, #f88044, #f3634f, #fb103d);
+    --gradient: linear-gradient( to right, #ffa100, #ff860e, #ff691f, #ff472f, #fb103d);
+    --gradient-hover: linear-gradient( to right, #f1ab32, #fa942e, #f88044, #f3634f, #fb103d);
     --light: 300;
     --regular: 400;
     --medium: 500;
@@ -30,6 +29,7 @@ body {
     overflow-x: hidden;
 }
 
+
 /* NAVBAR */
 
 .menu-label {
@@ -45,7 +45,7 @@ body {
     height: 64px;
     margin: 0 auto;
     margin-top: 10px;
-    position: relative;
+    position: fixed;
 }
 
 .nav__icon-container img {
@@ -144,6 +144,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    z-index: -1;
 }
 
 .pizza2 {
@@ -197,7 +198,7 @@ body {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 1em;
-    object-fit: cover
+    object-fit: cover;
 }
 
 .recommended__card-text h4,
@@ -252,7 +253,6 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-
 }
 
 .categorias__container {
@@ -345,6 +345,7 @@ body {
     margin: 0;
     width: 100%;
     padding: 5px;
+    /* z-index: 1; */
 }
 
 .products__card {
@@ -359,6 +360,7 @@ body {
     height: 19rem;
     width: 19rem;
     margin: 10px;
+    /* z-index: -1; */
 }
 
 .products__card img {
@@ -366,6 +368,7 @@ body {
     height: 7rem;
     border-radius: 10px;
 }
+
 
 /* .products__card-info {
     display: flex;
@@ -382,7 +385,7 @@ body {
     flex-direction: column;
     /* outline: 1px solid red; */
     position: relative;
-    bottom: .4rem;
+    bottom: 0.4rem;
     height: 5rem;
     justify-content: space-evenly;
     align-items: center;
@@ -456,7 +459,7 @@ body {
     gap: 30px;
     height: calc(100vh - 65px);
     overflow-y: scroll;
-    z-index: 2;
+    z-index: 1;
     min-width: 375px;
     transform: translate(200%);
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
@@ -603,6 +606,7 @@ body {
     background: var(--bg-gray-hover);
 }
 
+
 /* Footer */
 
 .footer {
@@ -616,7 +620,7 @@ body {
 
 .footer__link-container {
     display: flex;
-    gap: 30px
+    gap: 30px;
 }
 
 .text {
