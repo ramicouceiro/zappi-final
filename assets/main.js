@@ -3,6 +3,7 @@
 const products = document.querySelector(".products__container-cards");
 // Products text
 const productsText = document.querySelector(".products__container-text");
+
 // Contenedor de productos del carrito
 const productsCart = document.querySelector(".cart-container");
 // Total del carrito
@@ -26,7 +27,9 @@ const barsBtn = document.querySelector(".menu-label");
 // Menu Hamburguesa
 const barsMenu = document.querySelector(".navbar-list");
 // Container de las recomendaciones
-const recommendedContainer = document.querySelector(".recommended__cards-container")
+const recommendedContainer = document.querySelector(
+    ".recommended__cards-container"
+);
 
 // Seteamos el carrito vacio o lo que este en el local storage
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -39,7 +42,7 @@ const saveLocalStorage = (cartList) => {
 function generarRandom() {
     let min = 1;
     let max = 48;
-    return Math.floor(Math.random()*(max-min+1)+min);
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function elegirProductosRandom() {
@@ -53,22 +56,22 @@ function elegirProductosRandom() {
     while (rand1 == rand3 || rand2 == rand3) {
         rand3 = generarRandom();
     }
-    productsData.forEach(product => {
+    productsData.forEach((product) => {
         if (product.id === rand1) {
-            renderRecomendacion(product)
+            renderRecomendacion(product);
         }
         if (product.id === rand2) {
-            renderRecomendacion(product)
+            renderRecomendacion(product);
         }
         if (product.id === rand3) {
-            renderRecomendacion(product)
+            renderRecomendacion(product);
         }
     });
 }
 elegirProductosRandom();
 
-function renderRecomendacion (product) {
-    const div = document.createElement('div');
+function renderRecomendacion(product) {
+    const div = document.createElement("div");
     div.classList.add("recommended__card");
     recommendedContainer.append(div);
     div.innerHTML = `
@@ -80,9 +83,13 @@ function renderRecomendacion (product) {
         <b>$ ${product.precio}</b>
     </div>
     <div class="recommended__card-button">
-        <input type="button" value="Agregar" />
+    <button class="btn-add"
+    data-id="${product.id}"
+    data-name="${product.nombre}"
+    data-price="${product.precio}"
+    data-img=./assets/img/${product.imagen}">Agregar</button>
     </div>
-    `
+    `;
 }
 
 // Renderizado de productos
@@ -329,6 +336,7 @@ const init = () => {
     barsBtn.addEventListener("click", toggleMenu);
     disableBuyBtn();
     window.addEventListener("scroll", closeOnScroll);
+    recommendedContainer.addEventListener("click", addProduct);
 };
 
 init();
